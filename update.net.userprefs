@@ -1,0 +1,13 @@
+﻿<Properties>
+  <AuthorInfo Name="Brandon Milton" Email="" Copyright="Brandon Milton" Company="BrandonSoft" Trademark="" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="update.net/updater.cs">
+    <Files>
+      <File FileName="update.net/updater.cs" Line="50" Column="25" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -9,6 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>update.net</RootNamespace>
     <AssemblyName>update.net</AssemblyName>
+    <Description>A simple .NET updater  library</Description>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
