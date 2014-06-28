@@ -37,3 +37,21 @@ To use update.net, you must meet the following guidelines:
 4) Add in the ability to download a changelog  
 5) Add in a custom app that extracts .zip files so user doesn't have to make
    their own SFX archive.
+
+User Guide
+----------
+```c#
+// Create a new update object
+updater u = new updater("urlToVersionFile", "urlToUpdaterFile");
+
+// Check if an update is available
+if (u.isUpdateAvailable(currentVersion))
+{
+	downloadUpdate();
+	runUpdate();
+}
+else
+{
+	// No update available
+}
+```
