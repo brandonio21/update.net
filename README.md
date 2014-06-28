@@ -41,6 +41,8 @@ To use update.net, you must meet the following guidelines:
 
 User Guide
 ----------
+
+### Basic Usage ###
 ```c#
 // Create a new update object
 updater u = new updater("urlToVersionFile", "urlToUpdaterFile");
@@ -54,5 +56,42 @@ if (u.isUpdateAvailable(currentVersion))
 else
 {
 	// No update available
+}
+
+// Close the updater
+u.close();
+```
+
+### Catching Errors ###
+```c#
+updater u = new updater("urlToVersionFile", "urlToUpdaterFile");
+try
+{
+	if (u.isUpdateAvailable(currentVersion))
+	{
+		downloadUpdate();
+		runUpdate();
+	}
+}
+catch (NetworkNotFoundException nnfe)
+{
+	// No network!
+}
+catch (VersionFileNotFoundException vfnfe)
+{
+	// Error with version file!
+}
+catch (UpdateFileNotFoundException ufnfe)
+{
+	// Error with updater file!
+}
+catch (Exception e)
+{
+	// Other error
+}
+finally
+{
+	// Close the updater
+	u.close();
 }
 ```
