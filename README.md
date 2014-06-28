@@ -31,6 +31,7 @@ To use update.net, you must meet the following guidelines:
 
 
 ## TO-DO LIST ##
+0) Add implementation details to the README file  
 1) I developed this on Linux, thus, extensive Windows testing is needed  
 2) Extensive testing is seriously needed  
 3) Add in the ability to specify username/password for downloading files  
