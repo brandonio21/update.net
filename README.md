@@ -95,3 +95,16 @@ finally
 	u.close();
 }
 ```
+
+### A list of resources ###
+Since I don't know how to generate official C#doc, here's some useful stuff:  
+* `event EventHandler UpdateDownloaded`
+* `event EventHandler UpdateDownladProgressChanged`
+* `public bool isUpdateAvailable(string currentVersion)`
+* `public void downloadUpdate(string destDir)`
+* `public void downloadUpdate()`
+* `public void runUpdate(string dir, string args)`
+* `public void runUpdate(string directory)`
+* `public void runUpdate()`
+* `public void close()`
+
