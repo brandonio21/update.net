@@ -19,7 +19,7 @@ using System;
 
 namespace update.net
 {
-	class updater
+	public class updater
 	{
 		// Event handlers that can be delegated by the user
 		public event EventHandler UpdateDownloaded;

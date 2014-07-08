@@ -4,11 +4,11 @@ using System.Runtime.CompilerServices;
 // Information about this assembly is defined by the following attributes. 
 // Change them to the values specific to your project.
 [assembly: AssemblyTitle ("update.net")]
-[assembly: AssemblyDescription ("")]
+[assembly: AssemblyDescription("A simple update library for .NET applications")]
 [assembly: AssemblyConfiguration ("")]
-[assembly: AssemblyCompany ("")]
-[assembly: AssemblyProduct ("")]
-[assembly: AssemblyCopyright ("brandon")]
+[assembly: AssemblyCompany("brandonio21")]
+[assembly: AssemblyProduct("update.net")]
+[assembly: AssemblyCopyright("brandonio21 2014")]
 [assembly: AssemblyTrademark ("")]
 [assembly: AssemblyCulture ("")]
 // The assembly version has the format "{Major}.{Minor}.{Build}.{Revision}".
