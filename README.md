@@ -108,3 +108,8 @@ Since I don't know how to generate official C#doc, here's some useful stuff:
 * `public void runUpdate()`
 * `public void close()`
 
+
+
+
+## Sample ##
+To see a sample implementation, check out [this gist](https://gist.github.com/brandonio21/f6af53fa7b985b7d03f4)
