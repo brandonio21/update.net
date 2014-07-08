@@ -38,6 +38,7 @@ To use update.net, you must meet the following guidelines:
 4) Add in the ability to download a changelog  
 5) Add in a custom app that extracts .zip files so user doesn't have to make
    their own SFX archive.
+6) Add in a method to get the latest version
 
 User Guide
 ----------
