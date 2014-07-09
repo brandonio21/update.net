@@ -290,6 +290,44 @@ namespace update.net
 				System.IO.File.Delete(System.IO.Path.GetFileName(updaterURL));
 		}
 
+        /** Refresh Method
+        * This method serves the purpose of being identical to the close method,
+        * but it is meant to be called when the updater is created just in case
+        * the close method could not be called.
+        *
+        * Parameters: None
+        * Return:     None
+        **/
+        public void refresh()
+        {
+            // First, let's delete the version file
+            if (System.IO.File.Exists(System.IO.Path.GetFileName(versionURL)))
+                System.IO.File.Delete(System.IO.Path.GetFileName(versionURL));
+
+            // Now, let's delete the update itself
+            System.IO.File.Delete(System.IO.Path.GetFileName(updaterURL));
+        }
+
+        /** Refresh Method
+       * This method serves the purpose of being identical to the close method,
+       * but it is meant to be called when the updater is created just in case
+       * the close method could not be called. This version may be called when the 
+       * update has its own download directory.
+       *
+       * Parameters: updateDirectory - The directory the updater was downloaded to
+       * Return:     None
+       **/
+        public void refresh(string updateDirectory)
+        {
+            // First, let's delete the version file
+            if (System.IO.File.Exists(System.IO.Path.GetFileName(versionURL)))
+                System.IO.File.Delete(System.IO.Path.GetFileName(versionURL));
+
+            // Now, let's delete the update itself
+            System.IO.File.Delete(updateDirectory + "/" + System.IO.Path.GetFileName(updaterURL));
+            this.updaterDirectory = updateDirectory;
+        }
+
 		/** Download Progress Changed Handler Method
     * This method handles the progression of the download by raising the update
     * object's own custom event. This is not for public consumption.
