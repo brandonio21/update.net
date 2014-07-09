@@ -31,14 +31,14 @@ To use update.net, you must meet the following guidelines:
 
 
 ## TO-DO LIST ##
-0) Add implementation details to the README file  
+0) ~~Add implementation details to the README file~~  
 1) I developed this on Linux, thus, extensive Windows testing is needed  
 2) Extensive testing is seriously needed  
 3) Add in the ability to specify username/password for downloading files  
-4) Add in the ability to download a changelog  
+4) ~~Add in the ability to download a changelog~~  
 5) Add in a custom app that extracts .zip files so user doesn't have to make
-   their own SFX archive.
-6) Add in a method to get the latest version
+   their own SFX archive.  
+6) ~~Add in a method to get the latest version~~
 
 User Guide
 ----------
@@ -108,6 +108,10 @@ Since I don't know how to generate official C#doc, here's some useful stuff:
 * `public void runUpdate(string directory)`
 * `public void runUpdate()`
 * `public void close()`
+* `public void refresh()`
+* `public void refresh(string dir)`
+* `public string getChangelog(string url)`
+* `public string getLatestVersion()`
 
 
 
