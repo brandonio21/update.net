@@ -413,7 +413,7 @@ namespace update.net
 	/** Exception Classes To Handle This Object's Exceptions **/
 
 	// Exception to handle when there is no network available
-	class NetworkNotFoundException: Exception
+	public class NetworkNotFoundException: Exception
 	{
 		public NetworkNotFoundException()
 		{
@@ -430,7 +430,7 @@ namespace update.net
 	}
 
 	// Exception to handle when there are problems with the version file
-	class VersionFileNotFoundException: Exception
+	public class VersionFileNotFoundException: Exception
 	{
 		public VersionFileNotFoundException()
 		{
@@ -447,7 +447,7 @@ namespace update.net
 	}
 
 	// Exception to handle when there are problems with the update file
-	class UpdateFileNotFoundException: Exception
+	public class UpdateFileNotFoundException: Exception
 	{
 		public UpdateFileNotFoundException()
 		{
@@ -464,7 +464,7 @@ namespace update.net
 	}
 
     // Exception to handle when there are problems with the changelog file
-    class ChangelogFileNotFoundException : Exception
+    public class ChangelogFileNotFoundException : Exception
     {
         public ChangelogFileNotFoundException()
         {
