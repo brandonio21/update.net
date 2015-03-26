@@ -34,7 +34,7 @@ To use update.net, you must meet the following guidelines:
 0) ~~Add implementation details to the README file~~  
 1) I developed this on Linux, thus, extensive Windows testing is needed  
 2) Extensive testing is seriously needed  
-3) Add in the ability to specify username/password for downloading files  
+3) ~~Add in the ability to specify username/password for downloading files~~  
 4) ~~Add in the ability to download a changelog~~  
 5) Add in a custom app that extracts .zip files so user doesn't have to make
    their own SFX archive.  
@@ -48,7 +48,8 @@ User Guide
 ### Basic Usage ###
 ```c#
 // Create a new update object
-updater u = new updater("urlToVersionFile", "urlToUpdaterFile");
+updater u = new updater("urlToVersionFile", "urlToUpdaterFile", 
+"urlToChangelog");
 
 // Check if an update is available
 if (u.isUpdateAvailable(currentVersion))
