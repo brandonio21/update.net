@@ -39,7 +39,8 @@ To use update.net, you must meet the following guidelines:
 5) Add in a custom app that extracts .zip files so user doesn't have to make
    their own SFX archive.  
 6) ~~Add in a method to get the latest version~~  
-7) Add ability to check a lockout file to see if the program can be accessed
+7) Add ability to check a lockout file to see if the program can be accessed  
+8) Add an example GUI implementation as a starting point for new users  
 
 User Guide
 ----------
