@@ -23,6 +23,15 @@ namespace update.net
 {
     public class HTTPPlaintextUpdater : Updater
     {
+        public HTTPPlaintextUpdater(
+            string versionURL,
+            string updaterURL,
+            string directory,
+            string changelogURL = null,
+            string username = null,
+            string password = null) :
+            base(versionURL, updaterURL, directory, changelogURL, username, password) { }
+
         public override int GetLatestVersion()
         {
             NetworkUtils.AssertNetworkIsAvailable();
@@ -87,7 +96,7 @@ namespace update.net
             {
                 try
                 {
-                    return webclient.DownloadString(this.changelogURL);
+                    return webclient.DownloadString(this.changelogURL).Trim();
                 }
                 catch (Exception e)
                 {
