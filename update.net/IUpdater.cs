@@ -10,9 +10,16 @@ namespace update.net
     /// synchronously check versions, download changelogs, and asynchronously download and
     /// run updates.
     /// </summary>
-    interface IUpdater
+    public interface IUpdater
     {
+        /// <summary>
+        /// An Event indicating that the updater download has completed
+        /// </summary>
         event EventHandler UpdateDownloaded;
+
+        /// <summary>
+        /// An Event indicating that the updater download has progressed
+        /// </summary>
         event EventHandler UpdateDownloadProgressChanged;
 
         /// <summary>
