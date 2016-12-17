@@ -22,6 +22,7 @@ it is still compatible with all .NET projects.
 To use update.net, you must meet the following guidelines:  
 
 * The latest version number must be stored in a file online
+* Version numbers must be integers
 * The updater must be stored online and donwloadable
 
 ## Some Technical Details ##
@@ -29,30 +30,16 @@ To use update.net, you must meet the following guidelines:
 * The updater file is downloaded asynchroniously on another thread
 * The updater file is run on the operating thread
 
-
-## TO-DO LIST ##
-0) ~~Add implementation details to the README file~~  
-1) I developed this on Linux, thus, extensive Windows testing is needed  
-2) Extensive testing is seriously needed  
-3) ~~Add in the ability to specify username/password for downloading files~~  
-4) ~~Add in the ability to download a changelog~~  
-5) Add in a custom app that extracts .zip files so user doesn't have to make
-   their own SFX archive.  
-6) ~~Add in a method to get the latest version~~  
-7) Add ability to check a lockout file to see if the program can be accessed  
-8) Add an example GUI implementation as a starting point for new users  
-
 User Guide
 ----------
 
 ### Basic Usage ###
 ```c#
 // Create a new update object
-updater u = new updater("urlToVersionFile", "urlToUpdaterFile", 
-"urlToChangelog");
+var u = new HTTPPlaintextUpdater("urlToVersionFile", "urlToUpdaterFile", "dir");
 
 // Check if an update is available
-if (u.isUpdateAvailable(currentVersion))
+if (u.IsUpdateAvailable(currentVersion))
 {
 	downloadUpdate();
 	runUpdate();
@@ -61,17 +48,14 @@ else
 {
 	// No update available
 }
-
-// Close the updater
-u.close();
 ```
 
 ### Catching Errors ###
 ```c#
-updater u = new updater("urlToVersionFile", "urlToUpdaterFile");
+var u = new HTTPPlaintextUpdater("urlToVersionFile", "urlToUpdaterFile", "dir");
 try
 {
-	if (u.isUpdateAvailable(currentVersion))
+	if (u.IsUpdateAvailable(currentVersion))
 	{
 		downloadUpdate();
 		runUpdate();
@@ -99,25 +83,3 @@ finally
 	u.close();
 }
 ```
-
-### A list of resources ###
-Since I don't know how to generate official C#doc, here's some useful stuff:  
-* `event EventHandler UpdateDownloaded`
-* `event EventHandler UpdateDownladProgressChanged`
-* `public bool isUpdateAvailable(string currentVersion)`
-* `public void downloadUpdate(string destDir)`
-* `public void downloadUpdate()`
-* `public void runUpdate(string dir, string args)`
-* `public void runUpdate(string directory)`
-* `public void runUpdate()`
-* `public void close()`
-* `public void refresh()`
-* `public void refresh(string dir)`
-* `public string getChangelog(string url)`
-* `public string getLatestVersion()`
-
-
-
-
-## Sample ##
-To see a sample implementation, check out [this gist](https://gist.github.com/brandonio21/f6af53fa7b985b7d03f4)
