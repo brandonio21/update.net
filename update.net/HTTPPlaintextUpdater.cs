@@ -21,8 +21,14 @@ using System.IO;
 
 namespace update.net
 {
+    /// <summary>
+    /// An Updater implementation that uses HTTP WebClients to download the
+    /// version and changelogs from plaintext files and download the updater
+    /// directly.
+    /// </summary>
     public class HTTPPlaintextUpdater : Updater
     {
+        /// <inheritdoc/>
         public HTTPPlaintextUpdater(
             string versionURL,
             string updaterURL,
@@ -32,6 +38,13 @@ namespace update.net
             string password = null) :
             base(versionURL, updaterURL, directory, changelogURL, username, password) { }
 
+        /// <summary>
+        /// Gets the latest version by reading the version string from the version URL,
+        /// trimming whitespace from either side, and casting to int
+        /// </summary>
+        /// <returns>The latest version</returns>
+        /// <throws>NetworkNotFoundException if no network is available</throws>
+        /// <throws>VersionFileNotFoundException if a problem occured reading the version file</throws>
         public override int GetLatestVersion()
         {
             NetworkUtils.AssertNetworkIsAvailable();
@@ -40,7 +53,7 @@ namespace update.net
             {
                 try
                 {
-                    // Download the version file string
+                    /* Download the version file string */
                     string version = webclient.DownloadString(this.versionURL);
                     return int.Parse(version.Trim());
                 }
@@ -51,6 +64,12 @@ namespace update.net
             }
         }
 
+        /// <summary>
+        /// Asynchronously starts the download of the updater executable. Monitoring of the
+        /// download is delegated to the UpdateDownloaded and UpdateDownloadProgressChanged events
+        /// </summary>
+        /// <throws>NetworkNotFoundException if there is no network connection</throws>
+        /// <throws>UpdateFileNotFoundException if there is an error getting the update file</throws>
         public override void DownloadUpdate()
         {
             NetworkUtils.AssertNetworkIsAvailable();
@@ -72,21 +91,14 @@ namespace update.net
             }
         }
 
-        public override void RunUpdate(string args = null)
-        {
-            try
-            {
-                var updaterProcessInfo = new System.Diagnostics.ProcessStartInfo(
-                    this.updaterPath, args);
-
-                System.Diagnostics.Process.Start(updaterProcessInfo);
-            }
-            catch (Exception e)
-            {
-                throw new UpdateFileNotFoundException(e);
-            }
-        }
-
+        /// <summary>
+        /// Downloads the changelog text from the changelog file URL and returns it
+        /// after trimming its beginning and end.
+        /// </summary>
+        /// <returns>The trimmed changelog text</returns>
+        /// <throws>ArgumentNullException if the updater was constructed without a changelog url</throws>
+        /// <throws>NetworkNotFoundException if no network was found</throws>
+        /// <throws>ChangelogFileNotFoundException if a problem occurred while getting the changelog</throws>
         public override string GetChangelog()
         {
             this.changelogURL.AssertNotNullNotEmpty("ChangelogURL");
